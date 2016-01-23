@@ -47,7 +47,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'DELETE /user/:id' do
-    it 'lists users' do
+    it 'delete user' do
       user = FactoryGirl.create(:user)
       delete user_path(user)
       expect(response).to have_http_status(:no_content)
