@@ -9,6 +9,15 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  describe 'GET #by_user' do
+    it 'assigns all user posts as @posts' do
+      user = FactoryGirl.create(:user)
+      posts = FactoryGirl.create_list(:post, 100, user: user)
+      get :by_user, user_id: user.to_param
+      expect(assigns(:posts).size).to eq(posts.size)
+    end
+  end
+
   describe 'GET #show' do
     it 'assigns the requested post as @post' do
       post = FactoryGirl.create(:post)

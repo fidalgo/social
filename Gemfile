@@ -14,3 +14,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'activerecord-import'
 end
+
+gem 'simplecov', :require => false, :group => :test
