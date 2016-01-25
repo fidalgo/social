@@ -30,6 +30,8 @@ GEM
       activemodel (= 4.2.5)
       activesupport (= 4.2.5)
       arel (~> 6.0)
+    activerecord-import (0.10.0)
+      activerecord (>= 3.0)
     activesupport (4.2.5)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -70,6 +72,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (2.15.3)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -136,10 +139,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
   factory_girl_rails
   faker
   pg
   pry-rails
+  puma
   rails (= 4.2.5)
   rails-api
   rspec-rails (~> 3.0)
