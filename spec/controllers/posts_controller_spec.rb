@@ -5,7 +5,7 @@ RSpec.describe PostsController, type: :controller do
     it 'assigns all posts as @posts' do
       posts = FactoryGirl.create_list(:post, 100)
       get :index
-      expect(assigns(:posts)).to eq(posts)
+      expect(assigns(:posts)).to contain_exactly(posts)
     end
   end
 

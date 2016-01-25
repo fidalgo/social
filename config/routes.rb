@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :posts, except: [:new, :edit]
+  resources :posts, except: [:new, :edit] do
+    get 'by_user/:user_id', on: :collection, action: :by_user
+  end
+
   resources :users, except: [:new, :edit]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
