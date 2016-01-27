@@ -2,19 +2,20 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   describe 'GET #index' do
-    it 'assigns all posts as @posts' do
-      posts = FactoryGirl.create_list(:post, 100)
+    it 'assigns all posts as @posts sorted by creation date' do
+      FactoryGirl.create_list(:post, 100)
       get :index
-      expect(assigns(:posts)).to contain_exactly(posts)
+      expect(assigns(:posts)).to eq(Post.order(created_at: :desc).page(1))
     end
   end
 
   describe 'GET #by_user' do
-    it 'assigns all user posts as @posts' do
+    it 'assigns all user posts as @posts sorted by creation date' do
       user = FactoryGirl.create(:user)
-      posts = FactoryGirl.create_list(:post, 100, user: user)
+      FactoryGirl.create_list(:post, 100, user: user)
       get :by_user, user_id: user.to_param
-      expect(assigns(:posts).size).to eq(posts.size)
+      expect(assigns(:posts)).to eq(Post.where(user: user)
+      .order(created_at: :desc).page(1))
     end
   end
 

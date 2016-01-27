@@ -5,10 +5,10 @@ RSpec.describe 'Posts', type: :request do
 
   describe 'GET /posts' do
     it 'lists posts' do
-      posts = FactoryGirl.create_list(:post, 100)
+      FactoryGirl.create_list(:post, 100)
       get posts_path
       expect(response).to have_http_status(:ok)
-      expect(json.size).to eq(posts.size)
+      expect(json.size).to eq(Post.page(1).count)
     end
   end
 

@@ -5,6 +5,8 @@ gem 'rails', '4.2.5'
 gem 'rails-api'
 gem 'pg'
 gem 'puma'
+gem 'kaminari'
+gem 'api-pagination'
 
 group :development, :test do
   gem 'spring'
@@ -15,4 +17,4 @@ group :development, :test do
   gem 'activerecord-import'
 end
 
-gem 'simplecov', :require => false, :group => :test
+gem 'simplecov', require: false, group: :test
